@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Birthday My Love Shivuu ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #ff2a6d 0%, #9a0036 50%, #3a0016 100%);
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        html {
+            height: -webkit-fill-available;
+        }
+
+        /* Background Orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: pulse 6s infinite alternate ease-in-out;
+            z-index: 1;
+        }
+
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            background: #ff758c;
+            top: 5%;
+            left: 10%;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: #ff4b2b;
+            bottom: 5%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1) translate(0, 0); opacity: 0.5; }
+            100% { transform: scale(1.2) translate(20px, -15px); opacity: 0.8; }
+        }
+
+        /* Floating Animation Elements */
+        .floating-element {
+            position: absolute;
+            user-select: none;
+            pointer-events: none;
+            animation: floatUp 7s infinite linear;
+            z-index: 2;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(105vh) scale(0.5) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.9; }
+            80% { opacity: 0.9; }
+            100% { transform: translateY(-10vh) scale(1.3) rotate(360deg); opacity: 0; }
+        }
+
+        /* Main Flex Wrapper - Always Horizontal */
+        .wrapper {
+            display: flex;
+            flex-direction: row; /* Forces side-by-side on all screens including mobile */
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            padding: 10px;
+            z-index: 10;
+        }
+
+        /* Side Photos Styling */
+        .side-photo {
+            display: none;
+            flex: 0 0 25%; /* Takes 25% width on each side */
+            max-width: 250px;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInPhotos 1.2s ease forwards;
+        }
+
+        .side-photo img {
+            width: 100%;
+            height: auto;
+            max-height: 75vh;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.4));
+        }
+
+        @keyframes fadeInPhotos {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Login Container Box */
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 35px 25px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.2);
+            width: 90%;
+            max-width: 380px;
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+
+        .login-box h2 {
+            color: #ffffff;
+            font-size: 26px;
+            margin-bottom: 8px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .login-box p {
+            color: #ffdde1;
+            font-size: 13px;
+            margin-bottom: 22px;
+            opacity: 0.9;
+        }
+
+        .input-group {
+            margin-bottom: 18px;
+            text-align: left;
+        }
+
+        .input-group label {
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+            margin-left: 6px;
+            text-transform: uppercase;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 18px;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            color: #9a0036;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(45deg, #ff0055, #ff5050);
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(255, 0, 85, 0.5);
+            margin-top: 8px;
+        }
+
+        .error-msg {
+            color: #ffffff;
+            background: rgba(255, 0, 55, 0.7);
+            padding: 8px;
+            border-radius: 10px;
+            font-size: 12px;
+            margin-top: 12px;
+            display: none;
+            font-weight: 600;
+        }
+
+        /* Birthday Page Center Text (No Box) */
+        .birthday-page {
+            display: none;
+            flex: 0 0 50%; /* Takes center 50% width on mobile & laptop */
+            max-width: 500px;
+            padding: 10px;
+            text-align: center;
+            animation: popIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.6); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .bday-title {
+            font-size: 26px;
+            color: #ffffff;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            animation: textGlow 1.5s infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { text-shadow: 0 0 10px #ffffff, 0 0 20px #ff0055; }
+            to { text-shadow: 0 0 20px #ffffff, 0 0 30px #ff5050; }
+        }
+
+        .wife-tag {
+            background: linear-gradient(45deg, #ffffff, #ffe6eb);
+            color: #d6004c;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 800;
+            display: inline-block;
+            margin-bottom: 14px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .bday-text {
+            color: #ffffff;
+            font-size: 13px;
+            line-height: 1.6;
+            font-weight: 500;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        .love-signature {
+            margin-top: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffe6eb;
+            display: block;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        .hearts-burst {
+            font-size: 22px;
+            margin-bottom: 8px;
+            animation: pulseHeart 1s infinite alternate;
+        }
+
+        @keyframes pulseHeart {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+
+        /* Mobile Responsive Tuning */
+        @media (max-width: 600px) {
+            .side-photo {
+                flex: 0 0 28%; /* Give photos proper mobile width */
+            }
+            .side-photo img {
+                max-height: 50vh; /* Adjust height according to phone screen */
+            }
+            .birthday-page {
+                flex: 0 0 44%; /* Middle text area width */
+                padding: 2px;
+            }
+            .bday-title {
+                font-size: 18px;
+            }
+            .wife-tag {
+                font-size: 10px;
+                padding: 3px 10px;
+                margin-bottom: 8px;
+            }
+            .bday-text {
+                font-size: 11px;
+                line-height: 1.4;
+            }
+            .love-signature {
+                font-size: 12px;
+                margin-top: 8px;
+            }
+            .hearts-burst {
+                font-size: 16px;
+                margin-bottom: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <!-- Floating Animations -->
+    <div id="floating-container"></div>
+
+    <div class="wrapper">
+        <!-- LEFT PHOTO -->
+        <div class="side-photo" id="leftPhoto">
+            <img id="imgLeft" alt="Shivuu Left Photo">
+        </div>
+
+        <!-- MAIN LOGIN CONTAINER -->
+        <div class="container" id="mainContainer">
+            <div class="login-box" id="loginBox">
+                <h2>Welcome My Love ❤️</h2>
+                <p>Enter the secret code to unlock your surprise!</p>
+                
+                <form onsubmit="handleLogin(event)">
+                    <div class="input-group">
+                        <label>Username</label>
+                        <input type="text" id="username" placeholder="Enter username..." required autocomplete="off">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" id="password" placeholder="Enter password..." required>
+                    </div>
+
+                    <button type="submit" class="btn-login">Unlock Love 💖</button>
+                </form>
+                
+                <div class="error-msg" id="errorMsg">Incorrect details! ❤️</div>
+            </div>
+        </div>
+
+        <!-- BIRTHDAY SURPRISE SECTION -->
+        <div class="birthday-page" id="birthdayPage">
+            <div class="hearts-burst">💖 ✨ ❤️ ✨ 💖</div>
+            <div class="bday-title">Happy Birthday Shivuu!</div>
+            <div class="wife-tag">💍 MY BEAUTIFUL WIFE ❤️</div>
+            
+            <div class="bday-text">
+                "Having you in my life is the greatest blessing of all. You bring so much joy, warmth, and love into my world every single day. On your special day, I wish you endless happiness, laughter, and all the love your heart can hold!"
+                <span class="love-signature">Forever & Always Yours ❤️️</span>
+            </div>
+        </div>
+
+        <!-- RIGHT PHOTO -->
+        <div class="side-photo" id="rightPhoto">
+            <img id="imgRight" alt="Shivuu Right Photo">
+        </div>
+    </div>
+
+    <script>
+        // Set exact Base64 images directly inside JS
+        document.getElementById('imgLeft').src = "pic1.png";
+        document.getElementById('imgRight').src = "pic2.png";
+
+        // Create Floating Background Elements
+        function createFloatingElements() {
+            const container = document.getElementById('floating-container');
+            const items = ['❤️', '💖', '💕', '✨', '🌟', '💗', '🌹', '💎'];
+            
+            for (let i = 0; i < 25; i++) {
+                const elem = document.createElement('div');
+                elem.className = 'floating-element';
+                elem.innerText = items[Math.floor(Math.random() * items.length)];
+                elem.style.left = Math.random() * 100 + 'vw';
+                elem.style.animationDuration = (Math.random() * 4 + 5) + 's';
+                elem.style.animationDelay = Math.random() * 6 + 's';
+                elem.style.fontSize = (Math.random() * 16 + 12) + 'px';
+                container.appendChild(elem);
+            }
+        }
+        createFloatingElements();
+
+        // Login Handler Function
+        function handleLogin(e) {
+            e.preventDefault();
+            
+            const user = document.getElementById('username').value.trim();
+            const pass = document.getElementById('password').value.trim();
+            const errorMsg = document.getElementById('errorMsg');
+
+            if (user === "sk" && pass === "0611") {
+                errorMsg.style.display = "none";
+                
+                // Hide Login Container Box
+                document.getElementById('mainContainer').style.display = "none";
+                
+                // Show Birthday Content & Both Side Photos horizontally
+                document.getElementById('birthdayPage').style.display = "block";
+                document.getElementById('leftPhoto').style.display = "flex";
+                document.getElementById('rightPhoto').style.display = "flex";
+            } else {
+                errorMsg.style.display = "block";
+                errorMsg.innerText = "Wrong details, my love! Try again ❤️";
+            }
+        }
+    </script>
+</body>
+</html>
